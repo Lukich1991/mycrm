@@ -1,0 +1,17 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "vaadinstart"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1111"
+    ports:
+      - "5432:5432"
